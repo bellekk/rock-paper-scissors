@@ -1,8 +1,8 @@
 <script>
     function getComputerChoice() {
-        let computerChoice = ['Rock', 'Paper', 'Scissors'];
-        let randomized = Math.floor(Math.random() * computerChoice.length)
-        return computerChoice;
+        let randomChoice = ['Rock', 'Paper', 'Scissors'];
+        let computerChoice = Math.floor(Math.random() * randomChoice.length)
+        return randomChoice[computerChoice];
     }
 
     function getPlayerChoice() {
@@ -17,4 +17,20 @@
             getPlayerChoice();
         }
     }
+
+    function playRound() {
+        const computerSelection = getComputerChoice();
+        const playerSelection = getPlayerChoice();
+        if ((computerSelection == 'Rock' && playerSelection == 'Scissors') || (computerSelection == 'Paper' && playerSelection == 'Rock') || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
+            console.log('You lose! ' + computerSelection + ' beats ' + playerSelection);
+        }
+        else if ((playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors' && computerSelection == 'Paper')) {
+            console.log('You win! ' + playerSelection + ' beats ' + computerSelection);
+        }
+        else {
+            console.log('It\'s a draw! Computer selected ' + computerSelection + ' and Player selected ' + playerSelection);
+        }
+    }
+
+    playRound();
 </script>
