@@ -23,14 +23,30 @@
         const playerSelection = getPlayerChoice();
         if ((computerSelection == 'Rock' && playerSelection == 'Scissors') || (computerSelection == 'Paper' && playerSelection == 'Rock') || (computerSelection == 'Scissors' && playerSelection == 'Paper')) {
             console.log('You lose! ' + computerSelection + ' beats ' + playerSelection);
+            return 0;
         }
         else if ((playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Scissors' && computerSelection == 'Paper')) {
             console.log('You win! ' + playerSelection + ' beats ' + computerSelection);
+            return 1;
         }
         else {
             console.log('It\'s a draw! Computer selected ' + computerSelection + ' and Player selected ' + playerSelection);
+            return 0;
         }
     }
 
-    playRound();
+    function game() {
+        let counter = 0;
+        for (i = 0; i < 5; i++) {
+            counter += playRound();
+        }
+        if (counter >= 3) {
+            console.log('You win! You got ' + counter + ' wins')
+        }
+        else {
+            console.log('You lost! You only got ' + counter + ' wins')
+        }
+    }
+
+    game();
 </script>
