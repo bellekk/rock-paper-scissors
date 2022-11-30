@@ -2,10 +2,19 @@
     function getComputerChoice() {
         let computerChoice = ['Rock', 'Paper', 'Scissors'];
         let randomized = Math.floor(Math.random() * computerChoice.length)
-        console.log(computerChoice[randomized])
+        return computerChoice;
     }
 
-    //getComputerChoice();
-
-    
+    function getPlayerChoice() {
+        let playerChoice = prompt("Select rock, paper or scissors: ")
+        let capitalLetter = playerChoice.slice(0,1).toUpperCase();
+        playerChoice = capitalLetter + playerChoice.slice(1);
+        if ((playerChoice === 'Rock') || (playerChoice === 'Paper') || (playerChoice === 'Scissors')) {
+            return playerChoice;
+        }
+        else {
+            console.log('Please select again.')
+            getPlayerChoice();
+        }
+    }
 </script>
